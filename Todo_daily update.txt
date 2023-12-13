@@ -1,0 +1,13 @@
+13-12-23
+    1 Project setup done with yarn  with following comands
+        Steps:
+               React  project setup with Yarn 
+             1  npm install --global yarn
+             2  Yarn create vite
+             3 select project name 
+             4 cd   project name 
+             5 yarn install 
+             6 yarn lock file created  and node module created 
+    2  create git hub repositpry
+           https://github.com/Bikramjeet1998/React_Todo
+    3  create a different branches for karan and Bikram 
