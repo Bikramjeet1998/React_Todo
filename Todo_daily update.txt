@@ -7,7 +7,13 @@
              3 select project name 
              4 cd   project name 
              5 yarn install 
-             6 yarn lock file created  and node module created 
+             6 yarn lock file created  and node module created              
     2  create git hub repositpry
            https://github.com/Bikramjeet1998/React_Todo
     3  create a different branches for karan and Bikram 
+
+14-12-23
+     1 remome unneccery files
+     2 implement the basic structure of React_Todo
+     3 using Usestate with for add operation in todo
+    

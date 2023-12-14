@@ -23,7 +23,9 @@ function App() {
             <h4>List of all Todos</h4>
             <ul>
               {task.map((item, index) => (
-                <li key={index}> {item}</li>
+                <li key={index}> {item}
+                
+                </li>
               ))}
             </ul>
           </div>
