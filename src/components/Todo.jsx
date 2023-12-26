@@ -17,7 +17,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         task: state.task.filter((item) => item.id !== action.payload),
-      };
+      }
+    
 
     default:
       return state;
@@ -37,6 +38,7 @@ export default function Todo() {
       type: "DELETE",
       payload: id,
     });
+   
   }
   console.log(state);
   return (
