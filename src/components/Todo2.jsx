@@ -1,4 +1,5 @@
 import { React, useReducer } from "react";
+import  "./Todo2.css";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -21,10 +22,9 @@ const reducer = (state, action) => {
     case "Del":
       return {
         ...state,
-        task: state.task.filter((item) => item.id !== action.payload)
-        
-       }
-      
+        task: state.task.filter((item) => item.id !== action.payload),
+      };
+
     default:
       return state;
   }

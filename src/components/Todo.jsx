@@ -56,7 +56,7 @@ export default function Todo() {
                 })
               }
             />
-            <button onClick={() => dispatch({ type: "ADD" })}>ADD</button>
+            <button className="add-btn" onClick={() => dispatch({ type: "ADD" })}>ADD</button>
           </div>
 
           <div>
@@ -66,7 +66,7 @@ export default function Todo() {
                 return (
                   <li key={index}>
                     {item.title}
-                    <button onClick={() => handle_delete(item.id)}>
+                    <button classsname="del-btn" onClick={() => handle_delete(item.id)}>
                       delete
                     </button>
                   </li>
