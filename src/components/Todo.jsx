@@ -10,15 +10,30 @@ const reducer = (state, action) => {
       };
     case "ADD":
       return {
-        task: [...state.task, { id: Date.now(), title: state.inputValue }],
+        task: [
+          ...state.task,
+          { id: Date.now(), title: state.inputValue, completed: false },
+        ],
         inputValue: "",
       };
     case "DELETE":
       return {
         ...state,
         task: state.task.filter((item) => item.id !== action.payload),
-      }
-    
+      };
+    case "Selected":
+      return {
+        ...state,
+        task: state.task.map((item) => {
+          if (item.id === action.payload) {
+            return {
+              ...item,
+              completed: !item.completed,
+            };
+          }
+          return item;
+        }),
+      };
 
     default:
       return state;
@@ -38,7 +53,6 @@ export default function Todo() {
       type: "DELETE",
       payload: id,
     });
-   
   }
   console.log(state);
   return (
@@ -47,8 +61,10 @@ export default function Todo() {
         <div className="main-todo">
           <div className="">
             <input
+              className="input"
               type="text"
               value={state.inputValue}
+              placeholder="Enter Todo"
               onChange={(e) =>
                 dispatch({
                   type: "INPUT",
@@ -56,7 +72,12 @@ export default function Todo() {
                 })
               }
             />
-            <button className="add-btn" onClick={() => dispatch({ type: "ADD" })}>ADD</button>
+            <button
+              className="add-btn"
+              onClick={() => dispatch({ type: "ADD" })}
+            >
+              ADD
+            </button>
           </div>
 
           <div>
@@ -65,8 +86,22 @@ export default function Todo() {
               {state.task.map((item, index) => {
                 return (
                   <li key={index}>
-                    {item.title}
-                    <button classsname="del-btn" onClick={() => handle_delete(item.id)}>
+                    <span>
+                      <input
+                        type="checkbox"
+                        checked={item.completed}
+                        onChange={() =>
+                          dispatch({ type: "Selected", payload: item.id })
+                        }
+                      />
+                      <span className={item.completed ? "marked" : ""}>
+                        {item.title}
+                      </span>
+                    </span>
+                    <button
+                      classsname="del-btn"
+                      onClick={() => handle_delete(item.id)}
+                    >
                       delete
                     </button>
                   </li>

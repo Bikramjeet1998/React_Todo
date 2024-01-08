@@ -43,4 +43,15 @@
 
 .main-todo li {
   margin: 8px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+span {
+  display: flex;
+}
+.marked {
+  text-decoration: line-through;
+  color: #970909; /* Optional: Change the color for completed tasks */
 }
